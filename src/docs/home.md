@@ -23,7 +23,7 @@ title: Installation
 - [Dokcer compose >= 2.0.0)](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
 - Server must have ports 80 and 443 open
 - ETH wallet ( Private Key & Mnemonic )
-    > ETH balance (for signing transactions)
+    > ETH/Matic balance (for signing transactions)
     >
     > SARCO balance (for bonding your archaeologist to curses)
 - RPC wss:// URL (Infura, Alchemy, etc.)
@@ -222,8 +222,10 @@ POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 
 ### $SARCO Token
 - To get $SARCO, you can swap them on Uniswap
-- Go to https://app.uniswap.org/
-- SC Sarco: `0x7697B462A7c4Ff5F8b55BDBC2F4076c2aF9cF51A`
+- Go to [Uniswap ETH](https://app.uniswap.org/tokens/ethereum/0x7697b462a7c4ff5f8b55bdbc2f4076c2af9cf51a)
+- Go to [Uniswap Polygon](https://app.uniswap.org/tokens/polygon/0x80ae3b3847e4e8bd27a389f7686486cac9c3f3e8)
+- SC Sarco ETH: `0x7697B462A7c4Ff5F8b55BDBC2F4076c2aF9cF51A`
+- SC Sarco Polygon: `0x80ae3b3847e4e8bd27a389f7686486cac9c3f3e8`
 
 ## Register
 

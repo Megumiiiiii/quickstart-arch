@@ -40,11 +40,11 @@ nano .env
 1. Use wss:// not https://
 2. Generate new Mnemonic for each chain, generate [Here](https://iancoleman.io/bip39/) or anything you want
 
-
-- Example
-
 1. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
 2. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+
+
+- Example
 
 <CodeGroup>
 <code-block title="Both Chain">
