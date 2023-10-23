@@ -8,7 +8,7 @@
     "name": "",
     "email": ""
   },
-  "repository": "/quickstart-arch/",
+  "repository": "https://github.com/Megumiiiiii/quickstart-arch/",
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
