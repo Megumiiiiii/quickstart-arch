@@ -29,8 +29,6 @@ title: Installation
 - RPC wss:// URL (Infura, Alchemy, etc.)
 - Domain name pointed at your server's IP address
 
-*If running on Goerli (chain id = 5), then you will need Goerli ETH + Goerli SARCO.*
-
 ### Setup DNS Record
 - Go to the domain management
 - Add DNS Records.
@@ -65,6 +63,11 @@ cp .env.example .env
 ### Generate Mnemonic Pharse
 
 - [Here](https://iancoleman.io/bip39/)
+- or
+
+```
+COMPOSE_PROFILES=seed-gen docker compose run seed-gen
+```
 
 **BACKUP**
 
@@ -82,7 +85,8 @@ Fill in your data
 
 
 1. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
-2. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+2. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
+3. Need different `ENCRYPTION_MNEMONIC` for each chain you running
 
 
 - Example ↓ ↓ ↓

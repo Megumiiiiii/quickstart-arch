@@ -37,11 +37,10 @@ cp .env.example .env
 nano .env
 ```
 
-1. Use wss:// not https://
-2. Generate new Mnemonic for each chain, generate [Here](https://iancoleman.io/bip39/) or anything you want
-
-1. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
-2. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+1. Use wss:// not https:// for `PROVIDER_URL`
+2. Need different `ENCRYPTION_MNEMONIC` for each chain you running, Generate new Mnemonic for each chain, generate [Here](https://iancoleman.io/bip39/) or anything you want
+3. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
+4. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
 
 
 - Example
