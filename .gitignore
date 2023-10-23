@@ -1,10 +1,10 @@
 pids
 logs
-node_modules
+/node_modules
 npm-debug.log
 coverage/
 run
-dist
+/dist
 .DS_Store
 .nyc_output
 .basement
