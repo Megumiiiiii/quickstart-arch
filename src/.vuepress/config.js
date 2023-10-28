@@ -36,7 +36,7 @@ module.exports = {
    */
   themeConfig: {
     searchPlaceholder: "Search",
-    repo: "https://github.com/Megumiiiiii/quickstart-arch/tree/master/src",
+    repo: "https://github.com/Megumiiiiii/quickstart-arch",
     editLinks: true,
     docsDir: "",
     editLinkText: "Edit this page on GitHub",
