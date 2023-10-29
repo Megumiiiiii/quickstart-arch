@@ -27,6 +27,7 @@ export default {
 
 <style lang="stylus">
 .sidebar
+  float: right !important
   border-right 1px solid var(--BorderColor)
   color: var(--TextColor)
   ul
@@ -71,6 +72,7 @@ export default {
 
 @media (max-width: $MQMobile)
   .sidebar
+    float: right !important
     .nav-links
       display block
       color var(--TextColor)

@@ -38,7 +38,7 @@ module.exports = {
     searchPlaceholder: "Search",
     repo: "https://github.com/Megumiiiiii/quickstart-arch",
     editLinks: true,
-    docsDir: "",
+    docsDir: "src",
     editLinkText: "Edit this page on GitHub",
     lastUpdated: true,
     initialOpenGroupIndex: 1,

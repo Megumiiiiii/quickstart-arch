@@ -55,6 +55,7 @@ ETH_PRIVATE_KEY=ugfhttawfihqwoid132b1231b23
 
 ## (optional) multiply gas price estimation by this amount (i.e. 2 means 2x RPC gas price estimate)
 #GAS_MULTIPLIER=
+NOTIFICATION_WEBHOOK_URL=https://discord.com/api/webhooks/hafkakakjajbasbkadsbaksdjbakfbakfaf
 
 ## Domain to use for your archaeologist
 ## This domain should be pointed with an A record to your server's IP
