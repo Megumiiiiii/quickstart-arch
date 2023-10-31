@@ -21,20 +21,21 @@ title: Installation
 - Git
 - [Dokcer >= 20.0](https://www.simplilearn.com/tutorials/docker-tutorial/how-to-install-docker-on-ubuntu)
 - [Dokcer compose >= 2.0.0)](https://docs.docker.com/compose/install/linux/#install-the-plugin-manually)
-- Server must have ports 80 and 443 open
+- Server harus memiliki port 80 dan 443 terbuka
 - ETH wallet ( Private Key & Mnemonic )
-    > ETH/Matic balance (for signing transactions)
+    > ETH/Matic balance (untuk sign transaksi)
     >
     > SARCO balance (for bonding your archaeologist to curses)
 - RPC wss:// URL (Infura, Alchemy, etc.)
-- Domain name pointed at your server's IP address
+- Domain yang menunjuk ke alamat IP server Anda
 
 ### Setup DNS Record
-- Go to the domain management
-- Add DNS Records.
-- Select *A*.
-- Enter your name and your public IP as a value.
-- Save
+
+- Buka pengelolaan domain
+- Tambahkan Catatan DNS.
+- Pilih **A**.
+- Masukkan nama Anda dan alamat IP publik Anda sebagai nilai.
+- Simpan
   
 ## Install Dependencies
 ```bash
@@ -71,7 +72,7 @@ COMPOSE_PROFILES=seed-gen docker compose run seed-gen
 
 **BACKUP**
 
-### Create a blank `peer-id.json` file
+### Buat file kosong  `peer-id.json`
 
 ```bash
 touch peer-id.json
@@ -84,9 +85,10 @@ nano .env
 Fill in your data
 
 
-1. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
-2. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
-3. Need different `ENCRYPTION_MNEMONIC` for each chain you running
+1. Gunakan wss:// bukan https:// untuk `PROVIDER_URL`
+2. Butuh `ENCRYPTION_MNEMONIC` yang berbeda untuk setiap chain, generate [Here](https://iancoleman.io/bip39/) atau dimanapun
+3. `ETH_PRIVATE_KEY` Private key yang berisi ETH/Matic dan $SARCO
+4. `NOTIFICATION_WEBHOOK_URL` adalah discord webhook URL. Bisa baca disini untuk cara mengaturnya [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
 
 
 - Example ↓ ↓ ↓
@@ -225,7 +227,7 @@ POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 </CodeGroup>
 
 ### $SARCO Token
-- To get $SARCO, you can swap them on Uniswap
+- Untuk mendapatkan $SARCO, Anda dapat menukarkannya di Uniswap
 - Go to [Uniswap ETH](https://app.uniswap.org/tokens/ethereum/0x7697b462a7c4ff5f8b55bdbc2f4076c2af9cf51a)
 - Go to [Uniswap Polygon](https://app.uniswap.org/tokens/polygon/0x80ae3b3847e4e8bd27a389f7686486cac9c3f3e8)
 - SC Sarco ETH: `0x7697B462A7c4Ff5F8b55BDBC2F4076c2aF9cF51A`
@@ -233,7 +235,7 @@ POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 
 ## Register
 
-If you want to run on multiple chain, you need to registering 1 by 1.
+Jika ingin run di 2 chain, maka perlu register 1 by 1.
 
 
 <CodeGroup>
@@ -253,13 +255,13 @@ COMPOSE_PROFILES=register NETWORK=mainnet docker compose run register
 COMPOSE_PROFILES=register NETWORK=polygonMainnet docker compose run register
 ```
 - Y, Enter
-- Then enter the nominal ( recommended: DiggingFee 1 - 5, CurseFee 1-5, and FreeBond 1000 )
+- Kemudian masukkan jumlah ( recommended: DiggingFee 1 - 5, CurseFee 1-5, and FreeBond 1000 )
 
 </code-block>
 </CodeGroup>
 
 
-**Then enter the nominal ( recommended: DiggingFee 100 - 500, CurseFee 300, and FreeBond  1000 )**
+**Kemudian masukkan jumlah ( recommended: DiggingFee 100 - 500, CurseFee 300, and FreeBond  1000 )**
 
 Ouput:
 ```bash
@@ -281,7 +283,7 @@ address                    0x897015991ABC646a69EC8701B8459aA806aCf70a
 =========================================================================================================
 ```
 
-### Start the node
+### Start node
 ```bash
 COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 ```
@@ -317,7 +319,7 @@ COMPOSE_PROFILES=service NETWORK=all docker compose pull
 COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 ```
 
-#### Restarting the service
+#### Restarting node
 
 ```bash
 COMPOSE_PROFILES=service NETWORK=all docker compose stop
@@ -363,7 +365,7 @@ cli update -d 300 -n mainnet
 ```bash
 exit
 ```
-300 can be changed to any amount
+300 dapat diubah menjadi jumlah yang lain
 
 </code-block>
 <code-block title="Polygon">
@@ -375,7 +377,7 @@ cli update -d 300 -n polygonMainnet
 ```bash
 exit
 ```
-300 can be changed to any amount
+300 dapat diubah menjadi jumlah yang lain
 
 </code-block>
 </CodeGroup>
@@ -392,7 +394,7 @@ cli update -f 100 -n mainnet
 ```bash
 exit
 ```
-100 can be changed to any amount
+100 dapat diubah menjadi jumlah yang lain
 
 </code-block>
 <code-block title="Polygon">
@@ -404,7 +406,7 @@ cli update -f 100 -n polygonMainnet
 ```bash
 exit
 ```
-100 can be changed to any amount
+100 dapat diubah menjadi jumlah yang lain
 
 </code-block>
 </CodeGroup>
@@ -475,7 +477,7 @@ cli free-bond -w 10 -n mainnet
 ```bash
 exit
 ```
-10 can be changed to any amount
+10 bisa dubah berapapun
 
 </code-block>
 <code-block title="Polygon">
@@ -487,7 +489,7 @@ cli free-bond -w 10 -n polygonMainnet
 ```bash
 exit
 ```
-10 can be changed to any amount
+10 bisa dubah berapapun
 
 </code-block>
 </CodeGroup>
@@ -523,23 +525,17 @@ exit
 
 - Domain A Record
 
-Your domain must have an A record pointing at the IP address of your server that the archaeologist service is running on.
-https://www.nslookup.io/website-to-ip-lookup
-Use this tool to confirm that your domain is pointed correctly.
+Domain Anda harus memiliki catatan A yang menunjuk ke alamat IP server di mana layanan arkeolog dijalankan.[NsLookup](https://www.nslookup.io/website-to-ip-lookup) Gunakan alat ini untuk memastikan bahwa domain Anda sudah benar-benar diarahkan.
 
 - Test Websocket Connection
 
-https://www.piesocket.com/websocket-tester
-Test that your Archaeologist can have websocket connection open by entering your websocket address in this format:
+[Piesocket](https://www.piesocket.com/websocket-tester) Uji apakah Arkeolog Anda dapat membuka koneksi websocket dengan memasukkan alamat websocket Anda dalam format ini:
 ```
 wss://your.domain/p2p/yourPeerID
 ```
-To get your domain and peerID, run: [Check Profile](#checkprofile)
-
-
+Untuk mendapatkan domain dan peerID Anda, jalankan: [Check Profile](#checkprofile)
 
 #### ⚠️ If you want to delete ⚠️
-
 
 ```bash 
 cd ~/quickstart-archaeologist

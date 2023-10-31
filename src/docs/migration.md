@@ -2,7 +2,7 @@
 title: Migration
 ---
 
-### Delete previous Images
+### Hapus Images sebelumnya
 
 ```bash
 cd quickstart-archaeologist
@@ -13,7 +13,7 @@ docker rmi jwilder/nginx-proxy nginxproxy/acme-companion ghcr.io/sarcophagus-org
 ### Pull Repo
 
 ```bash
-git pull
+git pull origin main
 COMPOSE_PROFILES=service docker compose pull
 ```
 
@@ -31,19 +31,19 @@ rm .env
 cp .env.example .env
 ```
 
-- Then fill it
+- Lalu isi
 
 ```bash
 nano .env
 ```
 
-1. Use wss:// not https:// for `PROVIDER_URL`
-2. Need different `ENCRYPTION_MNEMONIC` for each chain you running, Generate new Mnemonic for each chain, generate [Here](https://iancoleman.io/bip39/) or anything you want
-3. `ETH_PRIVATE_KEY` is your Private Key which has ETH/Matic and $SARCO
-4. `NOTIFICATION_WEBHOOK_URL` is your discord webhook url. You can follow the instructions here to set up a [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
+1. Gunakan wss:// bukan https:// untuk `PROVIDER_URL`
+2. Butuh `ENCRYPTION_MNEMONIC` yang berbeda untuk setiap chain, generate [Here](https://iancoleman.io/bip39/) atau dimanapun
+3. `ETH_PRIVATE_KEY` Private key yang berisi ETH/Matic dan $SARCO
+4. `NOTIFICATION_WEBHOOK_URL` adalah discord webhook URL. Bisa baca disini untuk cara mengaturnya [discord webhook url](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (Optional)
 
 
-- Example
+- Contoh isi `.env`
 
 <CodeGroup>
 <code-block title="Both Chain">
@@ -209,7 +209,7 @@ COMPOSE_PROFILES=register NETWORK=polygonMainnet docker compose run register
 COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 ```
 
-#### Then update profile for Ethereum
+#### Lalu update profile Ethereum, jika masih menjalankan disana
 
 ```bash
 COMPOSE_PROFILES=service NETWORK=mainnet docker compose exec -it archaeologist sh
