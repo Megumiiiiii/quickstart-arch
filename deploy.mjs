@@ -6,7 +6,7 @@ import Arweave from "arweave";
 const ANT = "C7hd7ZrANhot0NveDPg8pu75uOQkn5qWbvFyVLUTjc8";
 const arweave = Arweave.init({ host: "arweave.net", port: 443, protocol: "https" });
 //const jwk = JSON.parse(fs.readFileSync('../wallet.json', 'utf-8'))
-const jwk = JSON.parse(Buffer.from(process.env.PERMAWEB_KEY, "base64").toString("utf-8"));
+const jwk = JSON.parse(Buffer.from(process.env.KEYY, "base64").toString("utf-8"));
 
 const bundlr = new Bundlr.default("https://node2.irys.xyz", "arweave", jwk);
 const warp = WarpFactory.custom(arweave, defaultCacheOptions, "mainnet").useArweaveGateway().build();
