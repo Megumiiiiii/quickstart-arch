@@ -23,6 +23,8 @@
     "warp-contracts": "^1.4.22"
   },
   "dependencies": {
+    "vue": "^2.6.0",
+    "vuex": "^4.1.0",
     "vue-server-renderer": "2.7.14"
   }
 }
