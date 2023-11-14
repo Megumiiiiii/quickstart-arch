@@ -14,14 +14,8 @@ jobs:
                   fetch-depth: 0
             - uses: actions/setup-node@v1
               with:
-                  node-version: 18.x
+                  node-version: 16.x
             - run: yarn install
             - run: yarn deploy
               env:
-                  KEY: ${{ secrets.PERMAWEB_KEY }}
-            - uses: Ilshidur/action-discord@master
-              name: Discord Notification
-              env:
-                  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-              with:
-                  args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed."
+                  KEY: ${{ secrets.KEYY }}
