@@ -26,5 +26,3 @@ await contract.writeInteraction({
 });
 
 console.log("Deployed Cookbook, please wait 20 - 30 minutes for ArNS to update!");
-
-console.log("Deployed Cookbook, please wait 20 - 30 minutes for ArNS to update!");
