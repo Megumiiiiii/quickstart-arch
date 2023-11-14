@@ -209,7 +209,7 @@ COMPOSE_PROFILES=register NETWORK=polygonMainnet docker compose run register
 COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 ```
 
-#### Lalu update profile Ethereum, jika masih menjalankan disana
+#### Lalu update profile Ethereum (Jika ganti domain, kalo ngga ganti ya ga usah), jika masih menjalankan disana
 
 ```bash
 COMPOSE_PROFILES=service NETWORK=mainnet docker compose exec -it archaeologist sh

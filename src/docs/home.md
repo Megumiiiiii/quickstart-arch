@@ -314,7 +314,7 @@ docker logs -f nginx-proxy
 ```bash
 cd ~/quickstart-archaeologist
 git pull
-COMPOSE_PROFILES=service NETWORK=all docker compose stop
+COMPOSE_PROFILES=service NETWORK=all docker compose down
 COMPOSE_PROFILES=service NETWORK=all docker compose pull
 COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 ```
@@ -322,8 +322,7 @@ COMPOSE_PROFILES=service NETWORK=all docker compose up -d
 #### Restarting node
 
 ```bash
-COMPOSE_PROFILES=service NETWORK=all docker compose stop
-COMPOSE_PROFILES=service NETWORK=all docker compose up -d
+COMPOSE_PROFILES=service NETWORK=all docker compose restart
 ```
 
 #### Update domain
@@ -372,12 +371,41 @@ exit
 
 ```bash
 NETWORK=all docker compose exec -it archaeologist sh
-cli update -d 300 -n polygonMainnet
+cli update -d 10 -n polygonMainnet
+```
+```bash
+exit
+```
+10 dapat diubah menjadi jumlah yang lain
+
+</code-block>
+</CodeGroup>
+
+#### Updating Curse Fee
+
+<CodeGroup>
+<code-block title="Ethereum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -c 300 -n mainnet
 ```
 ```bash
 exit
 ```
 300 dapat diubah menjadi jumlah yang lain
+
+</code-block>
+<code-block title="Polygon">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -c 10 -n polygonMainnet
+```
+```bash
+exit
+```
+10 dapat diubah menjadi jumlah yang lain
 
 </code-block>
 </CodeGroup>
