@@ -17,10 +17,10 @@
   "license": "MIT",
   "devDependencies": {
     "@irys/sdk": "^0.0.4",
-    "arweave": "^1.11.8",
+    "arweave": "^1.14.4",
     "vuepress": "2.0.0-beta.61",
     "vuepress-plugin-code-copy": "^1.0.6",
-    "warp-contracts": "^1.2.37"
+    "warp-contracts": "^1.4.22"
   },
   "dependencies": {
     "vue-server-renderer": "2.7.14"
