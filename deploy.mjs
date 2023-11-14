@@ -3,7 +3,7 @@ import { WarpFactory, defaultCacheOptions } from "warp-contracts";
 import Arweave from "arweave";
 
 const ANT = "C7hd7ZrANhot0NveDPg8pu75uOQkn5qWbvFyVLUTjc8";
-const DEPLOY_FOLDER = "./dist";
+const DEPLOY_FOLDER = "./src/.vuepress/dist";
 const IRYS_NODE = "https://node2.irys.xyz";
 
 const jwk = JSON.parse(Buffer.from(process.env.PERMAWEB_KEY, "base64").toString("utf-8"));
