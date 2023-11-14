@@ -2,7 +2,7 @@ import Irys from "@irys/sdk";
 import { WarpFactory, defaultCacheOptions } from "warp-contracts";
 import Arweave from "arweave";
 
-const ANT = "[YOUR ANT CONTRACT]";
+const ANT = "C7hd7ZrANhot0NveDPg8pu75uOQkn5qWbvFyVLUTjc8";
 const DEPLOY_FOLDER = "./src/.vuepress/dist";
 const IRYS_NODE = "https://node2.irys.xyz";
 
