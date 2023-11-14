@@ -18,13 +18,11 @@
   "devDependencies": {
     "@irys/sdk": "^0.0.4",
     "arweave": "^1.14.4",
-    "vuepress": "2.0.0-beta.61",
+    "vuepress": "^1.5.3",
     "vuepress-plugin-code-copy": "^1.0.6",
     "warp-contracts": "^1.4.22"
   },
   "dependencies": {
-    "vue": "^2.6.0",
-    "vuex": "^4.1.0",
-    "vue-server-renderer": "2.7.14"
+    "vuex": "^4.1.0"
   }
 }
