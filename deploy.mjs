@@ -1,24 +1,23 @@
-import Bundlr from "@bundlr-network/client";
+import Irys from "@irys/sdk";
 import { WarpFactory, defaultCacheOptions } from "warp-contracts";
-import fs from "fs";
 import Arweave from "arweave";
 
-const ANT = "C7hd7ZrANhot0NveDPg8pu75uOQkn5qWbvFyVLUTjc8";
-const arweave = Arweave.init({ host: "arweave.net", port: 443, protocol: "https" });
-//const jwk = JSON.parse(fs.readFileSync('../wallet.json', 'utf-8'))
-const jwk = JSON.parse(Buffer.from(process.env.KEY, "base64").toString("utf-8"));
+const ANT = "[YOUR ANT CONTRACT]";
+const DEPLOY_FOLDER = "./src/.vuepress/dist";
+const IRYS_NODE = "https://node2.irys.xyz";
 
-const bundlr = new Bundlr.default("https://node2.irys.xyz", "arweave", jwk);
+const jwk = JSON.parse(Buffer.from(process.env.KEY, "base64").toString("utf-8"));
+const arweave = Arweave.init({ host: "arweave.net", port: 443, protocol: "https" });
+const irys = new Irys({ url: IRYS_NODE, token: "arweave", key: jwk });
 const warp = WarpFactory.custom(arweave, defaultCacheOptions, "mainnet").useArweaveGateway().build();
 
 const contract = warp.contract(ANT).connect(jwk);
 // upload folder
-const result = await bundlr.uploadFolder("./src/.vuepress/dist", {
+const result = await irys.uploadFolder(DEPLOY_FOLDER, {
 	indexFile: "index.html",
 });
 
 // update ANT
-
 await contract.writeInteraction({
 	function: "setRecord",
 	subDomain: "@",
