@@ -12,12 +12,15 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "deploy": "irys upload-dir ./dist -h https://node1.irys.xyz --wallet ./wallet.json -t arweave --index-file index.html --no-confirmation"
+    "deploy": "yarn build && node deploy.mjs"
   },
   "license": "MIT",
   "devDependencies": {
+    "@irys/sdk": "^0.0.4",
+    "arweave": "^1.14.4",
     "vuepress": "^1.5.3",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "warp-contracts": "^1.4.22"
   },
   "dependencies": {
     "vue": "^2.6.0",
