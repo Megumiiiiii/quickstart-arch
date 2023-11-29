@@ -94,7 +94,7 @@ Fill in your data
 - Example ↓ ↓ ↓
 
 <CodeGroup>
-<code-block title="Both Chain">
+<code-block title="All Chain">
 
 ```bash
 ## Key used to encrypt secrets and sign ETH transactions
@@ -118,7 +118,7 @@ DOMAIN=my.exampledomain.com
 ## 80001 = Polygon Mumbai
 ## example, to run on mainnet, goerli, and sepolia, set:
 ## CHAIN_IDS="1,5,11155111"
-CHAIN_IDS=1,137
+CHAIN_IDS=1,42161,137
 
 ## Here, you should define:
 ## - RPC provider urls.
@@ -130,8 +130,8 @@ CHAIN_IDS=1,137
 MAINNET_PROVIDER_URL=wss://eth-mainnet
 MAINNET_ENCRYPTION_MNEMONIC=never gonna give you up never gonna let you down
 
-# GOERLI_PROVIDER_URL=
-# GOERLI_ENCRYPTION_MNEMONIC=
+ARBITRUM_PROVIDER_URL==wss://arb-mainnet
+ARBITRUM_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 
 POLYGON_MAINNET_PROVIDER_URL=wss://polygon-mainnet
 POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
@@ -224,18 +224,64 @@ POLYGON_MAINNET_PROVIDER_URL=wss://polygon-mainnet
 POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 ```
 </code-block>
+<code-block title="Arbitrum Only">
+
+```bash
+## Key used to encrypt secrets and sign ETH transactions
+## The address associated with this key is your archaeologist identifier
+ETH_PRIVATE_KEY=ugfhttawfihqwoid132b1231b23
+
+## (optional) multiply gas price estimation by this amount (i.e. 2 means 2x RPC gas price estimate)
+#GAS_MULTIPLIER=
+NOTIFICATION_WEBHOOK_URL=https://discord.com/api/webhooks/hafkakakjajbasbkadsbaksdjbakfbakfaf
+
+## Domain to use for your archaeologist
+## This domain should be pointed with an A record to your server's IP
+DOMAIN=my.exampledomain.com
+
+## Comma-separated list of chain ids of each network you want to run your service on.
+## Supported Chain IDS:
+## 1 = Mainnet
+## 5 = Goerli
+## 11155111 = Sepolia
+## 84531 = Base Goerli
+## 80001 = Polygon Mumbai
+## example, to run on mainnet, goerli, and sepolia, set:
+## CHAIN_IDS="1,5,11155111"
+CHAIN_IDS=42161
+
+## Here, you should define:
+## - RPC provider urls.
+## - Mnemonics used to derive keypairs to encrypt sarcophagi.
+##   Generate a new one here - https://iancoleman.io/bip39/ or see README to generate one offline.
+## Uncomment and set, for each network chain id you want to run on, your own
+## private provider URL (infura, alchemy, etc) and a unique mnemonic for that network.
+## ================================================================================================
+##MAINNET_PROVIDER_URL=
+##MAINNET_ENCRYPTION_MNEMONIC=
+
+# GOERLI_PROVIDER_URL=
+# GOERLI_ENCRYPTION_MNEMONIC=
+
+ARBITRUM_PROVIDER_URL==wss://arb-mainnet
+ARBITRUM_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
+```
+
+</code-block>
 </CodeGroup>
 
 ### $SARCO Token
 - Untuk mendapatkan $SARCO, Anda dapat menukarkannya di Uniswap
 - Go to [Uniswap ETH](https://app.uniswap.org/tokens/ethereum/0x7697b462a7c4ff5f8b55bdbc2f4076c2af9cf51a)
 - Go to [Uniswap Polygon](https://app.uniswap.org/tokens/polygon/0x80ae3b3847e4e8bd27a389f7686486cac9c3f3e8)
-- SC Sarco ETH: `0x7697B462A7c4Ff5F8b55BDBC2F4076c2aF9cF51A`
+- Go to [Uniswap Arbitrum](https://app.uniswap.org/tokens/arbitrum/0x82155Ab6b6c1113CFb352c7573B010a88f5974bD)
+- SC Sarco Ethereum: `0x7697B462A7c4Ff5F8b55BDBC2F4076c2aF9cF51A`
 - SC Sarco Polygon: `0x80ae3b3847e4e8bd27a389f7686486cac9c3f3e8`
+- SC Sarco Arbitrum: `0x82155Ab6b6c1113CFb352c7573B010a88f5974bD`
 
 ## Register
 
-Jika ingin run di 2 chain, maka perlu register 1 by 1.
+Jika ingin run di 3 chain, maka perlu register 1 by 1.
 
 
 <CodeGroup>
@@ -253,6 +299,15 @@ COMPOSE_PROFILES=register NETWORK=mainnet docker compose run register
 
 ```bash
 COMPOSE_PROFILES=register NETWORK=polygonMainnet docker compose run register
+```
+- Y, Enter
+- Kemudian masukkan jumlah ( recommended: DiggingFee 1 - 5, CurseFee 1-5, and FreeBond 1000 )
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+COMPOSE_PROFILES=register NETWORK=arbitrum docker compose run register
 ```
 - Y, Enter
 - Kemudian masukkan jumlah ( recommended: DiggingFee 1 - 5, CurseFee 1-5, and FreeBond 1000 )
@@ -350,6 +405,17 @@ exit
 ```
 
 </code-block>
+<code-block title="Arbitrum">
+
+```
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -u -n arbitrum
+```
+```
+exit
+```
+
+</code-block>
 </CodeGroup>
 
 #### Updating Digging Fee
@@ -372,6 +438,18 @@ exit
 ```bash
 NETWORK=all docker compose exec -it archaeologist sh
 cli update -d 10 -n polygonMainnet
+```
+```bash
+exit
+```
+10 dapat diubah menjadi jumlah yang lain
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -d 10 -n arbitrum
 ```
 ```bash
 exit
@@ -408,6 +486,56 @@ exit
 10 dapat diubah menjadi jumlah yang lain
 
 </code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -c 10 -n arbitrum
+```
+```bash
+exit
+```
+10 dapat diubah menjadi jumlah yang lain
+
+</code-block>
+</CodeGroup>
+
+#### Updating Profile
+
+<CodeGroup>
+<code-block title="Ethereum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -u -n mainnet
+```
+```bash
+exit
+```
+
+</code-block>
+<code-block title="Polygon">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -u -n polygonMainnet
+```
+```bash
+exit
+```
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -u -n arbitrum
+```
+```bash
+exit
+```
+
+</code-block>
 </CodeGroup>
 
 #### Updating Free Bond 
@@ -430,6 +558,18 @@ exit
 ```bash
 NETWORK=all docker compose exec -it archaeologist sh
 cli update -f 100 -n polygonMainnet
+```
+```bash
+exit
+```
+100 dapat diubah menjadi jumlah yang lain
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli update -f 100 -n arbitrum
 ```
 ```bash
 exit
@@ -464,6 +604,17 @@ exit
 ```
 
 </code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli view -p -n arbitrum
+```
+```bash
+exit
+```
+
+</code-block>
 </CodeGroup>
 
 #### Claim Rewards
@@ -485,6 +636,17 @@ exit
 ```bash
 NETWORK=all docker compose exec -it archaeologist sh
 cli claim -n polygonMainnet
+```
+```bash
+exit
+```
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli claim -n arbitrum
 ```
 ```bash
 exit
@@ -520,6 +682,18 @@ exit
 10 bisa dubah berapapun
 
 </code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli free-bond -w 10 -n arbitrum
+```
+```bash
+exit
+```
+10 bisa dubah berapapun
+
+</code-block>
 </CodeGroup>
 
 #### any other
@@ -541,6 +715,17 @@ exit
 ```bash
 NETWORK=all docker compose exec -it archaeologist sh
 cli help -n polygonMainnet
+```
+```bash
+exit
+```
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+NETWORK=all docker compose exec -it archaeologist sh
+cli help -n arbitrum
 ```
 ```bash
 exit

@@ -46,7 +46,7 @@ nano .env
 - Contoh isi `.env`
 
 <CodeGroup>
-<code-block title="Both Chain">
+<code-block title="All Chain">
 
 ```bash
 ## Key used to encrypt secrets and sign ETH transactions
@@ -70,7 +70,7 @@ DOMAIN=my.exampledomain.com
 ## 80001 = Polygon Mumbai
 ## example, to run on mainnet, goerli, and sepolia, set:
 ## CHAIN_IDS="1,5,11155111"
-CHAIN_IDS=1,137
+CHAIN_IDS=1,42161,137
 
 ## Here, you should define:
 ## - RPC provider urls.
@@ -82,8 +82,8 @@ CHAIN_IDS=1,137
 MAINNET_PROVIDER_URL=wss://eth-mainnet
 MAINNET_ENCRYPTION_MNEMONIC=never gonna give you up never gonna let you down
 
-# GOERLI_PROVIDER_URL=
-# GOERLI_ENCRYPTION_MNEMONIC=
+ARBITRUM_PROVIDER_URL==wss://arb-mainnet
+ARBITRUM_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 
 POLYGON_MAINNET_PROVIDER_URL=wss://polygon-mainnet
 POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
@@ -178,6 +178,50 @@ POLYGON_MAINNET_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
 ```
 
 </code-block>
+<code-block title="Arbitrum Only">
+
+```bash
+## Key used to encrypt secrets and sign ETH transactions
+## The address associated with this key is your archaeologist identifier
+ETH_PRIVATE_KEY=ugfhttawfihqwoid132b1231b23
+
+## (optional) multiply gas price estimation by this amount (i.e. 2 means 2x RPC gas price estimate)
+#GAS_MULTIPLIER=
+NOTIFICATION_WEBHOOK_URL=https://discord.com/api/webhooks/hafkakakjajbasbkadsbaksdjbakfbakfaf
+
+## Domain to use for your archaeologist
+## This domain should be pointed with an A record to your server's IP
+DOMAIN=my.exampledomain.com
+
+## Comma-separated list of chain ids of each network you want to run your service on.
+## Supported Chain IDS:
+## 1 = Mainnet
+## 5 = Goerli
+## 11155111 = Sepolia
+## 84531 = Base Goerli
+## 80001 = Polygon Mumbai
+## example, to run on mainnet, goerli, and sepolia, set:
+## CHAIN_IDS="1,5,11155111"
+CHAIN_IDS=42161
+
+## Here, you should define:
+## - RPC provider urls.
+## - Mnemonics used to derive keypairs to encrypt sarcophagi.
+##   Generate a new one here - https://iancoleman.io/bip39/ or see README to generate one offline.
+## Uncomment and set, for each network chain id you want to run on, your own
+## private provider URL (infura, alchemy, etc) and a unique mnemonic for that network.
+## ================================================================================================
+##MAINNET_PROVIDER_URL=
+##MAINNET_ENCRYPTION_MNEMONIC=
+
+# GOERLI_PROVIDER_URL=
+# GOERLI_ENCRYPTION_MNEMONIC=
+
+ARBITRUM_PROVIDER_URL==wss://arb-mainnet
+ARBITRUM_ENCRYPTION_MNEMONIC=never gonna tell a lie and hurt you
+```
+
+</code-block>
 </CodeGroup>
 
 ### Register
@@ -198,6 +242,13 @@ COMPOSE_PROFILES=register NETWORK=mainnet docker compose run register
 
 ```bash
 COMPOSE_PROFILES=register NETWORK=polygonMainnet docker compose run register
+```
+
+</code-block>
+<code-block title="Arbitrum">
+
+```bash
+COMPOSE_PROFILES=register NETWORK=arbitrum docker compose run register
 ```
 
 </code-block>
